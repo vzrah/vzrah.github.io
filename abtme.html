@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>all about sarah</title>
+    <link rel="icon" href="https://i.imgur.com/J4RlGZx.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+      :root {
+        /* Soft Pink Theme Palette */
+        --rilakkuma-brown: #e6a6b8; /* main soft pink */
+        --rilakkuma-light-brown: #f6d7df; /* light pastel pink */
+        --rilakkuma-cream: #fff7fa; /* very soft background */
+        --rilakkuma-dark-brown: #c97a93; /* darker accent pink */
+        --rilakkuma-golden: #e88aa6; /* hover / highlight pink */
+        --rilakkuma-beige: #fbe6ec; /* card background */
+        --rilakkuma-tan: #e9a3b6; /* medium accent pink */
+        --light-gray: #fff9fb; /* page background */
+        --text-dark: #6e4b57; /* soft dark text */
+        --text-medium: #8c6a76; /* medium text */
+        --border-color: rgba(201, 122, 147, 0.15);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Fredoka', sans-serif;
+        color: var(--text-dark);
+        background: linear-gradient(180deg, #fff9fb 0%, #fff4f8 100%);
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: 'Sour Gummy', sans-serif;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header Styles - Rilakkuma Brown Gradient */
+      header {
+        background: linear-gradient(135deg, #f3c7d2, #e6a8b8);
+        padding: 1.4rem 0;
+        text-align: center;
+        box-shadow: 0 3px 10px rgba(201, 122, 146, 0.18);
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding: 1.5rem 0; /* Smaller on mobile */
+        }
+      }
+
+      .profile-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem; /* Keep PC size */
+      }
+
+      @media (max-width: 768px) {
+        .profile-section {
+          gap: 1.2rem; /* Smaller on mobile */
+        }
+      }
+
+      .profile-img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: -20px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid var(--rilakkuma-cream);
+        box-shadow: 0 4px 10px rgba(201, 122, 146, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .profile-img {
+          width: 150px; /* Smaller on mobile */
+          height: 150px;
+          border: 5px solid var(--rilakkuma-cream);
+        }
+      }
+
+      .intro-text h1 {
+        font-size: 3rem; /* Keep PC size */
+        color: var(--rilakkuma-cream);
+        margin-bottom: 0.5rem;
+        line-height: 1.1;
+        text-shadow: 1px 1px 3px rgba(92, 75, 55, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .intro-text h1 {
+          font-size: 2.5rem; /* Smaller on mobile */
+        }
+      }
+
+      .intro-text p {
+        font-size: 1.3rem; /* Keep PC size */
+        color: var(--rilakkuma-cream);
+        max-width: 700px;
+        margin: 0 auto;
+        text-shadow: 0 1px 2px rgba(92, 75, 55, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .intro-text p {
+          font-size: 1.1rem; /* Smaller on mobile */
+        }
+      }
+
+      /* Main Content */
+      main {
+        padding: 3rem 0; /* Keep PC size */
+      }
+
+      @media (max-width: 768px) {
+        main {
+          padding: 2rem 0; /* Smaller on mobile */
+        }
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem; /* Keep PC size */
+        margin-top: 2.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .content-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          margin: 0 10px; /* Mobile gap from edges */
+        }
+      }
+
+      /* About Me Section - Rilakkuma Colors */
+      .about-me {
+        background-color: var(--rilakkuma-cream);
+        padding: 2rem; /* Keep PC size */
+        border-radius: 16px;
+        box-shadow: 0 6px 16px rgba(139, 115, 85, 0.1);
+        border-left: 8px solid var(--rilakkuma-brown);
+      }
+
+      @media (max-width: 768px) {
+        .about-me {
+          padding: 1.5rem; /* Smaller on mobile */
+          margin: 0; /* Reset for PC */
+        }
+      }
+
+      p {
+        margin-top: 10px;
+      }
+
+      .about-me h2 {
+        background: linear-gradient(
+          135deg,
+          var(--rilakkuma-brown),
+          var(--rilakkuma-dark-brown)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2.2rem; /* Keep PC size */
+        line-height: 1.1;
+      }
+
+      @media (max-width: 768px) {
+        .about-me h2 {
+          font-size: 2rem; /* Smaller on mobile */
+        }
+      }
+
+      .btn {
+        background: linear-gradient(
+          to right,
+          var(--rilakkuma-brown),
+          var(--rilakkuma-tan)
+        );
+        color: var(--rilakkuma-cream);
+        border: none;
+        border-radius: 8px;
+        font-family: 'Sour Gummy', sans-serif;
+        font-size: 1.2rem; /* Keep PC size */
+        cursor: pointer;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        display: inline-block;
+        text-decoration: none;
+        height: 50px; /* Keep PC size */
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 7px 5px 5px rgba(139, 115, 85, 0.2);
+        text-shadow: 0 1px 2px rgba(92, 75, 55, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .btn {
+          height: 45px; /* Smaller on mobile */
+          width: 140px;
+          font-size: 1.1rem;
+          box-shadow: 4px 3px 5px rgba(139, 115, 85, 0.15);
+        }
+      }
+
+      .btn:hover {
+        transform: scale(1.1);
+        background: linear-gradient(
+          to right,
+          var(--rilakkuma-dark-brown),
+          var(--rilakkuma-brown)
+        );
+      }
+
+      .about-me h3 {
+        margin-top: 15px;
+        margin-bottom: 0px;
+        color: var(--rilakkuma-dark-brown);
+      }
+
+      .about-me li {
+        margin-left: 20px;
+        color: var(--text-medium);
+      }
+
+      .intro-text p {
+        margin-top: 0px;
+      }
+
+      /* additional information */
+      .additional-info {
+        background-color: var(--rilakkuma-cream);
+        padding: 2rem; /* Keep PC size */
+        border-radius: 16px;
+        box-shadow: 0 6px 16px rgba(139, 115, 85, 0.1);
+        border-left: 8px solid var(--rilakkuma-tan);
+      }
+
+      @media (max-width: 768px) {
+        .additional-info {
+          padding: 1.5rem; /* Smaller on mobile */
+          margin: 0; /* Reset for PC */
+        }
+      }
+
+      .additional-info h2 {
+        background: linear-gradient(
+          135deg,
+          var(--rilakkuma-brown),
+          var(--rilakkuma-dark-brown)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2.2rem; /* Keep PC size */
+        line-height: 1.1;
+      }
+
+      @media (max-width: 768px) {
+        .additional-info h2 {
+          font-size: 2rem; /* Smaller on mobile */
+        }
+      }
+
+      .additional-info h3 {
+        font-size: 1.3em; /* Keep PC size */
+        margin-bottom: -10px;
+        color: var(--rilakkuma-dark-brown);
+      }
+
+      @media (max-width: 768px) {
+        .additional-info h3 {
+          font-size: 1.2em; /* Smaller on mobile */
+          margin-bottom: -5px;
+        }
+      }
+
+      .additional-info p {
+        color: var(--text-medium);
+      }
+
+      /* Games Showcase - Rilakkuma Colors */
+      .games-showcase {
+        margin-top: 3rem; /* Keep PC size */
+        background-color: var(--rilakkuma-cream);
+        padding: 2.5rem; /* Keep PC size */
+        border-radius: 16px;
+        box-shadow: 0 6px 16px rgba(139, 115, 85, 0.1);
+        border-left: 8px solid var(--rilakkuma-brown);
+      }
+
+      @media (max-width: 768px) {
+        .games-showcase {
+          margin-top: 2.5rem; /* Smaller on mobile */
+          padding: 2rem;
+          margin: 2rem 10px 0; /* Mobile gap from edges */
+        }
+      }
+
+      .games-showcase h2 {
+        background: linear-gradient(
+          135deg,
+          var(--rilakkuma-brown),
+          var(--rilakkuma-dark-brown)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2.5rem; /* Keep PC size */
+        line-height: 1.1;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .games-showcase h2 {
+          font-size: 2.2rem; /* Smaller on mobile */
+          margin-bottom: 1.5rem;
+        }
+      }
+
+      .games-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem; /* Keep PC size */
+      }
+
+      @media (max-width: 768px) {
+        .games-grid {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 1.5rem;
+        }
+      }
+
+      /* Game Cards - Rilakkuma Colors */
+      .game-card {
+        background-color: var(--rilakkuma-beige);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.5s;
+        border: 3px solid transparent;
+        display: flex;
+        flex-direction: column; /* Make card a flex container */
+        height: 100%; /* Make all cards equal height */
+        box-shadow: 0 4px 12px rgba(139, 115, 85, 0.1);
+      }
+
+      .game-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--rilakkuma-tan);
+      }
+
+      .game-img {
+        width: 100%;
+        height: 180px; /* Keep PC size */
+        object-fit: cover;
+        flex-shrink: 0; /* Don't shrink the image */
+      }
+
+      @media (max-width: 768px) {
+        .game-img {
+          height: 160px; /* Smaller on mobile */
+        }
+      }
+
+      .game-info {
+        padding: 1.5rem; /* Keep PC size */
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1; /* Take up available space */
+      }
+
+      @media (max-width: 768px) {
+        .game-info {
+          padding: 1.2rem; /* Smaller on mobile */
+        }
+      }
+
+      .game-info h3 {
+        color: var(--rilakkuma-dark-brown);
+        font-size: 1.5rem; /* Keep PC size */
+        margin-bottom: 0.8rem;
+      }
+
+      @media (max-width: 768px) {
+        .game-info h3 {
+          font-size: 1.4rem; /* Smaller on mobile */
+          margin-bottom: 0.6rem;
+        }
+      }
+
+      .game-info p {
+        color: var(--text-medium);
+        margin-bottom: 1rem;
+        line-height: 1.4;
+        flex-grow: 1; /* Push tags to bottom */
+      }
+
+      /* Game Tags - Rilakkuma Colors */
+      .game-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: auto; /* This pushes tags to bottom */
+        padding-top: 0.5rem;
+      }
+
+      .tag {
+        background-color: var(--rilakkuma-light-brown);
+        color: var(--rilakkuma-dark-brown);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        border: 1px solid rgba(139, 115, 85, 0.2);
+      }
+
+      .tag:hover {
+        background-color: var(--rilakkuma-tan);
+      }
+
+      /* Footer - Rilakkuma Colors */
+      footer {
+        background: linear-gradient(
+          135deg,
+          var(--rilakkuma-brown),
+          var(--rilakkuma-dark-brown)
+        );
+        padding: 2rem 0; /* Keep PC size */
+        text-align: center;
+        margin-top: 3rem;
+        box-shadow: 0 -1px 4px rgba(139, 115, 85, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        footer {
+          padding: 1.5rem 0; /* Smaller on mobile */
+          margin-top: 2.5rem;
+        }
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem; /* Keep PC size */
+        margin-bottom: 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .social-links {
+          gap: 1.2rem; /* Smaller on mobile */
+          margin-bottom: 1.2rem;
+        }
+      }
+
+      .social-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px; /* Keep PC size */
+        height: 50px;
+        background-color: var(--rilakkuma-cream);
+        border-radius: 50%;
+        color: var(--rilakkuma-dark-brown);
+        font-size: 1.5rem;
+        transition:
+          transform 0.3s,
+          background-color 0.3s;
+        text-decoration: none;
+        box-shadow: 0 3px 8px rgba(139, 115, 85, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .social-icon {
+          width: 45px; /* Smaller on mobile */
+          height: 45px;
+          font-size: 1.3rem;
+        }
+      }
+
+      .social-icon:hover {
+        transform: scale(1.1);
+        background-color: var(--rilakkuma-golden);
+        color: var(--rilakkuma-cream);
+      }
+
+      .copyright {
+        color: var(--rilakkuma-light-brown);
+        font-size: 0.9rem; /* Keep PC size */
+        text-shadow: 0 1px 2px rgba(92, 75, 55, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .copyright {
+          font-size: 0.85rem; /* Smaller on mobile */
+        }
+      }
+
+      /* Additional mobile-only adjustments */
+      @media (max-width: 480px) {
+        .content-grid,
+        .games-showcase {
+          margin: 0 10px;
+        }
+
+        .about-me,
+        .additional-info {
+          padding: 1.5rem 1.2rem;
+        }
+
+        .games-showcase {
+          padding: 1.5rem 1.2rem;
+        }
+
+        .intro-text h1 {
+          font-size: 2rem;
+        }
+
+        .intro-text p {
+          font-size: 1rem;
+        }
+
+        .profile-img {
+          width: 130px;
+          height: 130px;
+        }
+
+        .games-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="profile-section">
+          <img
+            src="https://i.pinimg.com/736x/8a/86/f2/8a86f281a8c23dffe4374d098466d1de.jpg"
+            alt="Profile Picture"
+            class="profile-img"
+          />
+          <div class="intro-text">
+            <h1>sarah</h1>
+            <p>my about me page all coded by me</p>
+            <p>age disclosed</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="content-grid">
+        <section class="about-me">
+          <h2>everything you need to know about me</h2>
+          <p>
+            hi, i'm sarah from sydney, australia. i'm pretty chill and usually
+            just do my own thing. a bit sarcastic sometimes but generally
+            easygoing once i'm comfortable.
+          </p>
+
+          <p>
+            most of my free time is spent gaming. i mainly play roblox,
+            especially games like volleyball legends and arsenal. i like fast
+            paced fps games because they're competitive and actually require
+            good aim and reaction time. it's fun trying to improve and get
+            better at something while still just playing for fun.
+          </p>
+
+          <p>
+            when i'm not gaming i'm usually listening to music, procrastinating,
+            or messing around with random creative or tech projects. i prefer
+            figuring things out myself instead of following step by step
+            instructions, especially when it comes to making something that both
+            looks good and works properly.
+          </p>
+
+          <h3>skills & expertise</h3>
+          <ul>
+            <li>
+              advice giving or whatever u call it (guys i know how to be srs)
+            </li>
+            <li>obbies + aiming</li>
+            <li>upper mid in arsenal & vbl</li>
+            <li>programming (HTML, CSS, JavaScript)</li>
+          </ul>
+
+          <a href="#links" class="btn" style="margin-top: 1.5rem"
+            >links + socials</a
+          >
+        </section>
+        <section class="additional-info">
+          <h2>additional info</h2>
+          <h3>usernames</h3>
+          <p>the only usernames or aliases i go by are:</p>
+          <p>vzrah / sarahiously / val / valerie</p>
+          <p>roblox: @sarahiousIy</p>
+          <p>discord: @vzrah</p>
+        </section>
+      </div>
+
+      <section class="games-showcase">
+        <h2>games i play from roblox</h2>
+        <div class="games-grid">
+          <!-- Game 1 -->
+          <div class="game-card">
+            <img
+              src="https://external-preview.redd.it/volleyball-legends-codes-october-2025-update-39-v0-VUdgCAUrCX7dsprpEfhXRWIo4EgCirGWkgv9gXzyA2w.jpeg?width=640&crop=smart&auto=webp&s=d30ebb2123af9f2635c77c6c405a2ca96aa89344"
+              alt="Volleyball Legends"
+              class="game-img"
+            />
+            <div class="game-info">
+              <h3>Volleyball Legends</h3>
+              <p>
+                Volleyball Legends is a competitive volleyball game focused on
+                skill, teamwork, and fast-paced matches. It appeals to players
+                who enjoy coordinated multiplayer gameplay.
+              </p>
+              <div class="game-tags">
+                <span class="tag">Sport</span>
+                <span class="tag">Competitive</span>
+                <span class="tag">Team</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Game 2 -->
+          <div class="game-card">
+            <img
+              src="https://tr.rbxcdn.com/180DAY-6bb1a9706475489833d58dc1a21d1c69/768/432/Image/Webp/noFilter"
+              alt="Arsenal"
+              class="game-img"
+            />
+            <div class="game-info">
+              <h3>Arsenal</h3>
+              <p>
+                Arsenal is a fast-paced FPS featuring quick rounds and
+                constantly changing weapons. It has received recognition within
+                the Roblox community and has won awards for its popularity and
+                gameplay.
+              </p>
+              <div class="game-tags">
+                <span class="tag">FPS</span>
+                <span class="tag">Action</span>
+                <span class="tag">Competitive</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Game 3 -->
+          <div class="game-card">
+            <img
+              src="https://assetsio.gnwcdn.com/midnight-chasers-0.webp?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp"
+              alt="Midnight Chasers"
+              class="game-img"
+            />
+            <div class="game-info">
+              <h3>Midnight Chasers</h3>
+              <p>
+                Midnight Chasers is an open-world racing game centred around
+                high-speed driving, racing events, and vehicle customisation.
+              </p>
+              <div class="game-tags">
+                <span class="tag">Racing</span>
+                <span class="tag">Action</span>
+                <span class="tag">Multiplayer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="social-links" id="links">
+          <a href="https://www.tiktok.com/vzrahh" class="social-icon"
+            ><i class="fab fa-tiktok"></i
+          ></a>
+          <a href="https://github.com/vzrah" class="social-icon"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://www.instagram.com/vzrah_/" class="social-icon"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://discordapp.com/users/1054231115528933467"
+            class="social-icon"
+            ><i class="fab fa-discord"></i
+          ></a>
+        </div>
+        <p class="copyright">&copy; 2025 vzrah. All rights reserved.</p>
+        <p class="copyright">
+          This website is an introduction on myself and my interests.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Add hover effect to game cards
+      const gameCards = document.querySelectorAll('.game-card');
+      gameCards.forEach((card) => {
+        card.addEventListener('mouseenter', function () {
+          this.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.1)';
+        });
+
+        card.addEventListener('mouseleave', function () {
+          this.style.boxShadow = 'none';
+        });
+      });
+    </script>
+  </body>
+</html>
