@@ -1,6 +1,6 @@
 # hi im sarah
 
-this is my introduction page — all coded and programmed by me. have a look!
+this is my readme for my introduction page/site — all coded and programmed by me. have a look! https://vzrah.github.io/
 happy reading guys >_<
 
 ### changes 16/04/26
