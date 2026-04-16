@@ -30,6 +30,24 @@
         --shadow: 0 18px 50px rgba(50, 35, 55, 0.08);
         --radius: 28px;
         --radius-sm: 18px;
+        --light-gradient-1: rgba(200, 182, 255, 0.45);
+        --light-gradient-2: rgba(243, 196, 215, 0.4);
+      }
+
+      [data-theme='dark'] {
+        --bg: #1a0f23;
+        --surface: rgba(35, 25, 45, 0.85);
+        --surface-strong: rgba(50, 35, 60, 0.95);
+        --text: #f8f4ff;
+        --muted: #d0c5e0;
+        --line: rgba(120, 90, 180, 0.2);
+        --lavender: #a68cff;
+        --blush: #e8a0d0;
+        --cream: #2a1f3a;
+        --rose: #d88fc8;
+        --shadow: 0 18px 50px rgba(0, 0, 0, 0.4);
+        --light-gradient-1: rgba(168, 140, 255, 0.35);
+        --light-gradient-2: rgba(232, 160, 208, 0.35);
       }
 
       * {
@@ -47,17 +65,31 @@
         color: var(--text);
         background:
           radial-gradient(
-            circle at top left,
-            rgba(200, 182, 255, 0.3),
-            transparent 35%
+            circle at 20% 20%,
+            var(--light-gradient-1),
+            transparent 40%
           ),
           radial-gradient(
-            circle at top right,
-            rgba(243, 196, 215, 0.25),
-            transparent 32%
+            circle at 80% 10%,
+            var(--light-gradient-2),
+            transparent 38%
+          ),
+          radial-gradient(
+            circle at 10% 80%,
+            var(--light-gradient-2),
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at 90% 85%,
+            var(--light-gradient-1),
+            transparent 42%
           ),
           linear-gradient(180deg, #fffdfd 0%, var(--bg) 100%);
         line-height: 1.6;
+        transition:
+          background 0.4s ease,
+          color 0.3s ease;
+        min-height: 100vh;
       }
 
       a {
@@ -77,8 +109,8 @@
       .hero-card {
         background: linear-gradient(
           180deg,
-          rgba(255, 255, 255, 0.92),
-          rgba(255, 255, 255, 0.75)
+          var(--surface-strong),
+          var(--surface)
         );
         border: 1px solid var(--line);
         box-shadow: var(--shadow);
@@ -89,6 +121,7 @@
         gap: 28px;
         align-items: center;
         backdrop-filter: blur(14px);
+        transition: all 0.3s ease;
       }
 
       .profile-img {
@@ -107,7 +140,6 @@
         font-size: 0.9rem;
         color: var(--muted);
         letter-spacing: 0.08em;
-        /* text-transform: uppercase; */
         margin-bottom: 12px;
       }
 
@@ -150,10 +182,11 @@
         align-items: center;
         padding: 9px 14px;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.82);
+        background: var(--surface-strong);
         border: 1px solid var(--line);
         color: var(--text);
         font-size: 0.92rem;
+        transition: all 0.3s ease;
       }
 
       .grid {
@@ -170,6 +203,7 @@
         box-shadow: var(--shadow);
         padding: 28px;
         backdrop-filter: blur(14px);
+        transition: all 0.3s ease;
       }
 
       .card h2 {
@@ -204,10 +238,11 @@
       }
 
       .fact {
-        background: rgba(255, 255, 255, 0.72);
+        background: var(--surface-strong);
         border: 1px solid var(--line);
         border-radius: 20px;
         padding: 16px;
+        transition: all 0.3s ease;
       }
 
       .fact strong {
@@ -233,9 +268,8 @@
         overflow: hidden;
         border: 1px solid var(--line);
         background: var(--surface-strong);
-        padding-top: 7px;
-        padding-left: 7px;
-        padding-right: 7px;
+        padding: 7px;
+        transition: all 0.3s ease;
       }
 
       .interests {
@@ -246,8 +280,9 @@
       .interest {
         padding: 18px;
         border-radius: 20px;
-        background: rgba(255, 255, 255, 0.74);
+        background: var(--surface-strong);
         border: 1px solid var(--line);
+        transition: all 0.3s ease;
       }
 
       .interest h3 {
@@ -309,15 +344,51 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        background: rgba(255, 255, 255, 0.86);
+        background: var(--surface-strong);
         border: 1px solid var(--line);
         color: var(--text);
         box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
       }
 
       .social-icon:hover {
         background: linear-gradient(135deg, var(--lavender), var(--blush));
         color: white;
+      }
+
+      /* Dark mode toggle */
+      .theme-toggle {
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        z-index: 1000;
+        background: var(--surface-strong);
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(14px);
+        transition: all 0.3s ease;
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+      }
+
+      .theme-toggle i {
+        font-size: 1.2rem;
+        color: var(--text);
+        transition: transform 0.4s ease;
+      }
+
+      [data-theme='dark'] .theme-toggle i {
+        transform: rotate(360deg);
       }
 
       @media (max-width: 860px) {
@@ -333,6 +404,13 @@
 
         .facts {
           grid-template-columns: 1fr;
+        }
+
+        .theme-toggle {
+          top: 16px;
+          right: 16px;
+          width: 48px;
+          height: 48px;
         }
       }
 
@@ -371,18 +449,6 @@
           both;
       }
 
-      /* ----------------------------------------------
- * Generated by Animista on 2026-4-15 22:58:40
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-      /**
- * ----------------------------------------
- * animation tracking-in-expand
- * ----------------------------------------
- */
       @-webkit-keyframes tracking-in-expand {
         0% {
           letter-spacing: -0.5em;
@@ -410,6 +476,15 @@
     </style>
   </head>
   <body>
+    <!-- Dark mode toggle button -->
+    <button
+      class="theme-toggle"
+      title="Toggle dark mode"
+      aria-label="Toggle dark mode"
+    >
+      <i class="fas fa-sun"></i>
+    </button>
+
     <header class="hero">
       <div class="container">
         <section class="hero-card">
@@ -421,7 +496,11 @@
           <div>
             <div class="eyebrow">
               all abt me //
-              <a class="website-name" href="https://vzrah.github.io/"
+              <a
+                class="website-name"
+                href="https://vzrah.github.io/"
+                target="_blank"
+                rel="noopener noreferrer"
                 >vzrah.github.io</a
               >
             </div>
@@ -451,11 +530,11 @@
           </div>
           <p>
             most of my free time is spent gaming. i like fast-paced FPS games
-            because they’re competitive and actually require good aim and
+            because they're competitive and actually require good aim and
             reaction time.
           </p>
           <p>
-            when I’m not gaming, i’m usually listening to music,
+            when I'm not gaming, i'm usually listening to music,
             procrastinating, or messing around with random creative or tech
             projects. i prefer figuring things out myself instead of following
             step-by-step instructions.
@@ -470,9 +549,7 @@
               <h2>favourite songs</h2>
               <span>spotify</span>
             </div>
-            <!-- <p>Put your Spotify embed here:</p> -->
             <div class="spotify-frame">
-              <!-- PASTE YOUR SPOTIFY EMBED CODE BELOW -->
               <iframe
                 data-testid="embed-iframe"
                 style="border-radius: 12px"
@@ -507,7 +584,6 @@
                 "
                 loading="lazy"
               ></iframe>
-              <!-- Example: <iframe style="border-radius:12px" src="YOUR_SPOTIFY_EMBED_URL" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> -->
             </div>
           </div>
         </section>
@@ -574,6 +650,8 @@
         <div class="social-links">
           <a
             href="https://www.tiktok.com/@vzrahh"
+            target="_blank"
+            rel="noopener noreferrer"
             class="social-icon"
             aria-label="TikTok"
             title="'tiktok'"
@@ -581,6 +659,8 @@
           ></a>
           <a
             href="https://github.com/vzrah"
+            target="_blank"
+            rel="noopener noreferrer"
             class="social-icon"
             aria-label="GitHub"
             title="my github profile"
@@ -588,6 +668,8 @@
           ></a>
           <a
             href="https://www.instagram.com/vzrah_/"
+            target="_blank"
+            rel="noopener noreferrer"
             class="social-icon"
             aria-label="Instagram"
             title="my instagram profile"
@@ -595,6 +677,8 @@
           ></a>
           <a
             href="https://discordapp.com/users/1054231115528933467"
+            target="_blank"
+            rel="noopener noreferrer"
             class="social-icon"
             aria-label="Discord"
             title="my discord profile"
@@ -602,6 +686,8 @@
           ></a>
           <a
             href="https://www.roblox.com/users/3467711374/profile"
+            target="_blank"
+            rel="noopener noreferrer"
             class="social-icon"
             aria-label="Roblox"
             title="my roblox profile"
@@ -618,5 +704,32 @@
         <p>© 2026 vzrah. All rights reserved.</p>
       </div>
     </footer>
+
+    <script>
+      // Dark mode toggle functionality
+      const toggle = document.querySelector('.theme-toggle');
+      const body = document.body;
+
+      // Check for saved theme preference or default to light
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      if (savedTheme === 'dark') {
+        body.setAttribute('data-theme', 'dark');
+        toggle.querySelector('i').className = 'fas fa-moon';
+      }
+
+      toggle.addEventListener('click', () => {
+        const currentTheme =
+          body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', currentTheme);
+        localStorage.setItem('theme', currentTheme);
+
+        const icon = toggle.querySelector('i');
+        if (currentTheme === 'dark') {
+          icon.className = 'fas fa-moon';
+        } else {
+          icon.className = 'fas fa-sun';
+        }
+      });
+    </script>
   </body>
 </html>
