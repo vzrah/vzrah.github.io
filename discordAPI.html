@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Discord Presence Test</title>
+    <style>
+      body {
+        background-color: #2b2d31;
+        display: flex;
+        justify-center: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .discord-card {
+        width: 320px;
+        background: #111214;
+        color: #fff;
+        border-radius: 12px;
+        padding: 16px;
+        font-family: sans-serif;
+        margin: auto;
+      }
+      .avatar-wrapper {
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+      #discord-avatar {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: #2b2d31;
+      }
+      .status-dot {
+        position: absolute;
+        bottom: 2px;
+        right: 2px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 3px solid #111214;
+        background-color: #80848e;
+      }
+      .status-dot.online {
+        background-color: #23a55a;
+      }
+      .status-dot.idle {
+        background-color: #f0b232;
+      }
+      .status-dot.dnd {
+        background-color: #f23f43;
+      }
+      .status-dot.offline {
+        background-color: #80848e;
+      }
+      #discord-name {
+        margin: 10px 0 2px 0;
+        font-size: 20px;
+      }
+      #discord-username {
+        margin: 0 0 10px 0;
+        color: #b5bac1;
+        font-size: 14px;
+      }
+      #custom-status {
+        color: #dbdee1;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="discord-card">
+      <div class="avatar-wrapper">
+        <img id="discord-avatar" src="" alt="Avatar" />
+        <div id="status-indicator" class="status-dot"></div>
+      </div>
+      <div class="profile-details">
+        <h3 id="discord-name">Loading...</h3>
+        <p id="discord-username">@loading</p>
+        <p id="custom-status">Connecting to Lanyard...</p>
+      </div>
+    </div>
+
+    <script>
+      // ⚠️ REPLACE THIS STRING WITH YOUR ACCURATE DISCORD USER ID
+      const DISCORD_ID = '1054231115528933467'; 
+
+      async function fetchDiscordStatus() {
+        try {
+          const response = await fetch(`https://lanyard.rest{DISCORD_ID}`);
+          const json = await response.json();
+
+          if (!json.success) {
+            document.getElementById('custom-status').innerText =
+              'User not found. Check your ID!';
+            return;
+          }
+
+          const data = json.data;
+
+          // Populate elements
+          document.getElementById('discord-name').innerText =
+            data.discord_user.display_name || data.discord_user.username;
+          document.getElementById('discord-username').innerText =
+            `@${data.discord_user.username}`;
+
+          const avatarHash = data.discord_user.avatar;
+          document.getElementById('discord-avatar').src = avatarHash
+            ? `https://discordapp.com{DISCORD_ID}/${avatarHash}.png`
+            : `https://discordapp.com`;
+
+          const statusIndicator = document.getElementById('status-indicator');
+          statusIndicator.className = 'status-dot ' + data.discord_status;
+
+          const customActivity = data.activities.find((act) => act.type === 4);
+          document.getElementById('custom-status').innerText = customActivity
+            ? customActivity.state
+            : 'No custom status set';
+        } catch (error) {
+          document.getElementById('custom-status').innerText =
+            'Failed to load API data.';
+          console.error(error);
+        }
+      }
+
+      fetchDiscordStatus();
+      setInterval(fetchDiscordStatus, 15000);
+    </script>
+  </body>
+</html>
