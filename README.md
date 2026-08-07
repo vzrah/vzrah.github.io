@@ -1,7 +1,10 @@
 # hi im sarah
 
 this is the readme for my [introduction page](https://vzrah.github.io/) — all coded and programmed by me. have a look!
-happy reading guys >_<
+happy reading guys >.<
+
+### changes 07/08/26
+> changed bio, profile picture
 
 ### changes 16/04/26
 > added dark/light theme toggle
