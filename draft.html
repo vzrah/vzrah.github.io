@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>all about sarah</title>
+    <link rel="icon" href="https://i.imgur.com/mXrm60g.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg: #040404;
+        --bg-soft: #0b0b10;
+        --surface: rgba(14, 14, 18, 0.92);
+        --surface-strong: #111116;
+        --text: #f7f3ff;
+        --muted: #a7a0b6;
+        --line: rgba(255, 255, 255, 0.1);
+        --accent: #bca6ff;
+        --accent-2: #f2b4d3;
+        --shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+        --radius: 30px;
+        --radius-sm: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(
+            circle at 12% 18%,
+            rgba(188, 166, 255, 0.16),
+            transparent 26%
+          ),
+          radial-gradient(
+            circle at 88% 12%,
+            rgba(242, 180, 211, 0.16),
+            transparent 24%
+          ),
+          linear-gradient(135deg, #030303 0%, var(--bg-soft) 100%);
+        min-height: 100vh;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .hero {
+        padding: 72px 0 26px;
+      }
+
+      .hero-card {
+        background: linear-gradient(
+          140deg,
+          rgba(17, 17, 22, 0.98),
+          rgba(10, 10, 13, 0.95)
+        );
+        border: 1px solid var(--line);
+        border-radius: 36px;
+        box-shadow: var(--shadow);
+        padding: 32px;
+        display: grid;
+        grid-template-columns: 190px 1fr;
+        gap: 28px;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-card::before {
+        content: '';
+        position: absolute;
+        inset: auto auto -70px -60px;
+        width: 220px;
+        height: 220px;
+        background: radial-gradient(
+          circle,
+          rgba(188, 166, 255, 0.26),
+          transparent 70%
+        );
+        filter: blur(10px);
+      }
+
+      .profile-img {
+        width: 190px;
+        height: 190px;
+        border-radius: 28px;
+        object-fit: cover;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9rem;
+        color: var(--muted);
+        letter-spacing: 0.08em;
+        margin-bottom: 10px;
+        /* text-transform: uppercase; */
+      }
+
+      .eyebrow::before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      }
+
+      .website-name {
+        color: #fff;
+        transition: color 0.2s ease;
+      }
+
+      .website-name:hover {
+        color: var(--accent-2);
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: 'Cormorant Garamond', serif;
+        line-height: 1.05;
+        font-weight: 600;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 5.6vw, 4.6rem);
+        margin-bottom: 10px;
+      }
+
+      .hero p {
+        font-size: 1.04rem;
+        color: var(--muted);
+        max-width: 62ch;
+      }
+
+      .quick-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--text);
+        font-size: 0.93rem;
+      }
+
+      .grid {
+        padding: 16px 0 70px;
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 22px;
+      }
+
+      .card {
+        background: linear-gradient(
+          140deg,
+          rgba(15, 15, 19, 0.96),
+          rgba(8, 8, 12, 0.94)
+        );
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+
+      .card h2 {
+        font-size: 2.05rem;
+        margin-bottom: 12px;
+      }
+
+      .card p {
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .section-title span {
+        font-size: 0.84rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .facts {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .fact {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 16px;
+      }
+
+      .fact strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.9rem;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .fact div {
+        font-size: 0.98rem;
+        color: var(--text);
+      }
+
+      .music {
+        margin-top: 22px;
+      }
+
+      .spotify-frame {
+        margin-top: 14px;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        padding: 6px;
+      }
+
+      .interests {
+        display: grid;
+        gap: 14px;
+      }
+
+      .interest {
+        padding: 18px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .interest h3 {
+        font-size: 1.55rem;
+        margin-bottom: 6px;
+      }
+
+      .interest p {
+        margin-bottom: 0;
+      }
+
+      .links {
+        margin-top: 14px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      footer {
+        padding: 0 0 42px;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 14px;
+        flex-wrap: wrap;
+      }
+
+      .social-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--text);
+        transition: all 0.2s ease;
+      }
+
+      .social-icon:hover {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #050505;
+      }
+
+      .bold {
+        font-weight: bolder;
+      }
+
+      @media (max-width: 860px) {
+        .hero-card,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .profile-img {
+          width: 150px;
+          height: 150px;
+        }
+
+        .facts {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .hero {
+          padding-top: 24px;
+        }
+
+        .hero-card,
+        .card {
+          padding: 20px;
+          border-radius: 22px;
+        }
+
+        h1 {
+          font-size: 2.6rem;
+        }
+
+        .card h2 {
+          font-size: 1.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <section class="hero-card">
+          <video
+            class="profile-img"
+            autoplay
+            loop
+            muted
+            playsinline
+            aria-label="Profile video"
+          >
+            <source src="https://i.imgur.com/24mA67y.mp4" type="video/mp4" />
+          </video>
+          <div>
+            <div class="eyebrow">
+              all abt me //
+              <a
+                class="website-name"
+                href="https://vzrah.github.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >vzrah.github.io</a
+              >
+            </div>
+            <h1>sarah</h1>
+            <p>
+              hi im sarah. im pretty chill, a little sarcastic and im kinda cool
+              icl. i like sleeping, riding at night andddd thats about it yeahh?
+            </p>
+            <div class="quick-tags">
+              <span class="tag">r7 4life</span>
+              <span class="tag">444racingco</span>
+              <span class="tag">idk filler</span>
+              <span class="tag">i love cats</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main>
+      <div class="container grid">
+        <section class="card">
+          <div class="section-title">
+            <h2>about me</h2>
+            <span>bio</span>
+          </div>
+          <p>
+            most of my free time is spent on my pc. i like fps games because
+            they're competitive tho im kinda ass now haha...
+          </p>
+          <p>
+            when im not gaming, im usually listening to music, procrastinating
+            way too much, or dreaming abt the day i get a 444rc reflective
+            hoodie ouu. im super chill n social so hi lets talk wink
+          </p>
+          <p>
+            i love going outside and enjoying nature whenever im in the mood but
+            im too broke to go shopping :c i'm a huge empath and get emotional
+            wayyy too easily during movies and im always happy to listen if
+            someone needs it andd idk. btw i dont have fav songs so i just put
+            the ones on repeat recently :P also can someone make a roblox icon
+            to put in social links cuz i found NOTHING
+          </p>
+
+          <div class="music">
+            <div class="section-title">
+              <h2>favourite songs</h2>
+              <span>spotify</span>
+            </div>
+            <div class="spotify-frame">
+              <iframe
+                data-testid="embed-iframe"
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/3sK8wGT43QFpWrvNQsrQya?utm_source=generator&si=585834c89cc64ffc"
+                width="100%"
+                height="152"
+                frameborder="0"
+                allowfullscreen=""
+                allow="
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  fullscreen;
+                  picture-in-picture;
+                "
+                loading="lazy"
+              ></iframe>
+              <iframe
+                data-testid="embed-iframe"
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/5oady7OSE7dH7LHiqmb3Cr?utm_source=generator&si=9d3f69e90d9e42b3"
+                width="100%"
+                height="152"
+                frameborder="0"
+                allowfullscreen=""
+                allow="
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  fullscreen;
+                  picture-in-picture;
+                "
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </section>
+
+        <aside class="card">
+          <div class="section-title">
+            <h2>quick facts</h2>
+            <span>info</span>
+          </div>
+          <div class="facts">
+            <div class="fact">
+              <strong>aliases</strong>
+              <div>vzrah, sarahiously</div>
+            </div>
+            <div class="fact">
+              <strong>based in</strong>
+              <div>Sydney</div>
+            </div>
+            <div class="fact">
+              <strong>height</strong>
+              <div>168 cm / 5'6</div>
+            </div>
+            <div class="fact">
+              <strong>sports</strong>
+              <div>
+                <span class="bold">oztag</span>,<span class="bold">
+                  netball</span
+                >, athletics
+              </div>
+            </div>
+          </div>
+
+          <div class="music" style="margin-top: 22px">
+            <div class="section-title">
+              <h2>what i like</h2>
+              <span>interests</span>
+            </div>
+            <div class="interests">
+              <div class="interest">
+                <h3>gaming</h3>
+                <p>
+                  competitive fast-paced games; fps and skill based multiplayer
+                  stuff
+                </p>
+              </div>
+              <div class="interest">
+                <h3>music</h3>
+                <p>
+                  the only therapy i can afford after losing everything to
+                  stocks 💔
+                </p>
+              </div>
+              <div class="interest">
+                <h3>creating</h3>
+                <p>
+                  building websites, experimenting with code, and making lil
+                  passion projects
+                </p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="social-links">
+          <a
+            href="https://github.com/vzrah"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon githubsocial"
+            aria-label="GitHub"
+            title="my github profile"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://discordapp.com/users/1054231115528933467"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon discordsocial"
+            aria-label="Discord"
+            title="my discord profile"
+            ><i class="fab fa-discord"></i
+          ></a>
+          <a
+            href="https://www.roblox.com/users/3467711374/profile"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon robloxsocial"
+            aria-label="Roblox"
+            title="my roblox profile"
+          >
+            <img
+              src="https://www.citypng.com/public/uploads/preview/hd-roblox-black-symbol-sign-icon-logo-png-70175169478745256ylmn6eud.png"
+              width="24"
+              height="24"
+              alt="Roblox"
+              style="border-radius: 50%; object-fit: contain"
+            />
+          </a>
+        </div>
+        <p>© 2026 vzrah. All rights reserved.</p>
+        <p>programmed and coded with ♡ by sarah</p>
+      </div>
+    </footer>
+  </body>
+</html>
